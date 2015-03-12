@@ -1,0 +1,451 @@
+/**
+ * @file
+ * Positioning for a fixed-width, desktop-centric layout.
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
+ */
+
+/**
+ * Center the page.
+ *
+ * If you want to make the page a fixed width and centered in the viewport,
+ * this is the standards-compliant way to do that.
+ */
+
+html{
+	
+}
+
+body{
+	color:#4e5b68;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	background:url(/images/fbg.png) bottom left repeat-x;
+}
+body a, a:visited, a:hover{
+	color:#4e5b68;
+	text-decoration:none;
+}
+a:hover{
+	color:#4e5b68;
+	text-decoration:none;
+	text-decoration:underline;
+}
+
+#page,
+.region-bottom {
+  margin-left: auto;
+  margin-right: auto;
+  width: 940px;
+}
+
+.region.region-bottom{
+	height:87px;
+	position:relative;
+}
+
+/* Apply the shared properties of grid items in a single, efficient ruleset. */
+#header,
+#content,
+#navigation,
+.region-sidebar-first,
+.region-sidebar-second,
+#footer,
+
+{
+
+  border-left: 0 !important;
+  border-right: 0 !important;
+  word-wrap: break-word;
+  *behavior: url("/path/to/boxsizing.htc");
+  _display: inline;
+  _overflow: hidden;
+  _overflow-y: visible;
+}
+
+/* Containers for grid items and flow items. */
+#header,
+#main,
+#footer {
+  *position: relative;
+  *zoom: 1;
+}
+#header:before,
+#header:after,
+#main:before,
+#main:after,
+#footer:before,
+#footer:after {
+  content: "";
+  display: table;
+}
+#header:after,
+#main:after,
+#footer:after {
+  clear: both;
+}
+
+/* Navigation bar */
+#main {
+  /* Move all the children of #main down to make room. */
+  padding-top: 3em;
+  position: relative;
+}
+#navigation {
+  /* Move the navbar up inside #main's padding. */
+  position: absolute;
+  top: 0;
+  height: 3em;
+  width: 960px;
+}
+
+
+
+
+/**
+ * The layout when there is only one sidebar, the left one.
+ */
+
+/* Span 4 columns, starting in 2nd column from left. */
+.sidebar-first #content {
+  float: left;
+  width: 764px;
+  margin-left: 196px;
+  margin-right: -940px;
+}
+
+/* Span 1 column, starting in 1st column from left. */
+.sidebar-first .region-sidebar-first {
+  float: left;
+  width: 176px;
+  margin-left: 0px;
+  margin-right: -196px;
+}
+
+/**
+ * The layout when there is only one sidebar, the right one.
+ */
+
+/* Span 4 columns, starting in 1st column from left. */
+.sidebar-second #content {
+  float: left;
+  width: 764px;
+  margin-left: 0px;
+  margin-right: -784px;
+}
+
+/* Span 1 column, starting in 5th column from left. */
+.sidebar-second .region-sidebar-second {
+  float: left;
+  width: 176px;
+  margin-left: 784px;
+  margin-right: -940px;
+}
+
+/**
+ * The layout when there are two sidebars.
+ */
+
+/* Span 3 columns, starting in 2nd column from left. */
+.two-sidebars #content {
+  float: left;
+  width: 568px;
+  margin-left: 196px;
+  margin-right: -784px;
+}
+
+/* Span 1 column, starting in 1st column from left. */
+.two-sidebars .region-sidebar-first {
+  float: left;
+  width: 176px;
+  margin-left: 0px;
+  margin-right: -196px;
+}
+
+/* Span 1 column, starting in 5th column from left. */
+.two-sidebars .region-sidebar-second {
+  float: left;
+  width: 176px;
+  margin-left: 784px;
+  margin-right: -940px;
+}
+
+
+
+header {
+	width:100%;
+}
+
+.headnavbar {
+	height:91px;
+	width:100%;
+	background:#FFF;
+	position: fixed;
+	z-index: 1000;
+	border-bottom: 1px solid #4e5b68;
+}
+
+.middleblock, .region.region-bottom, #block-block-4 p, #block-views-advantages-block .view-advantages {
+	width:940px;
+	margin:0 auto;
+	height:100%;
+	position:relative;
+	display:block;
+}
+
+.headnavbar .header__logo {
+	margin-top:20px;
+}
+
+nav{
+	position:absolute;
+	top:32px;
+	left:50%;
+	z-index:1001;
+	border-left:1px solid #e5e8e8;
+	margin: -2px 0 0 160px;
+	height:30px;
+	overflow:hidden;
+	padding:0;
+	width:400px;
+}
+nav li{
+	margin-left: 25px;
+	float:left;
+	list-style: none;
+	font-weight:500;
+	line-height:30px;
+}
+nav li a{
+	font-weight:600;
+}
+nav ul{
+	margin-left:-20px;
+
+	float:left;
+	list-style: none;
+}
+
+header #name-and-slogan {
+	float:right;
+	color:#1abc9c;
+	font-size:20px;
+	font-weight:bold;
+	height:38px;
+	padding-left: 48px;
+	background:url(/images/phone.png) top left no-repeat;
+	line-height:38px;
+	margin-top:25px;
+}
+
+#block-views-top-block-block{
+	width:100%;
+	overflow:hidden;
+	height:650px;
+	margin-top:91px;
+	position:relative;
+}
+
+#block-views-top-block-block .view-top-block {
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-1000px;
+}
+
+#block-webform-client-block-10{
+	position:absolute;
+	top:200px;
+	left:50%;
+	margin-left:-470px;
+	width:315px;
+}
+
+#block-webform-client-block-10 h2{
+	color:#FFF;
+	font-size:33px;
+	font-weight:100;
+	line-height:40px;
+}
+
+p.submitted{
+	display:none;	 
+}
+
+#block-webform-client-block-10 .field-name-body{
+	font-size:16px;
+	color:#bdc3c7;
+	width:315px;
+	padding-bottom:1px;
+}
+
+#block-webform-client-block-10 input{
+	padding:10px;
+	border:none;
+	background:#FFF;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#block-webform-client-block-10 #edit-submitted-name, #block-webform-client-block-10 #edit-submitted-phone{
+	width:47%;	
+}
+
+#block-webform-client-block-10 #edit-submitted-phone{
+	float:right;	
+	margin-top:-60px;
+}
+
+#block-webform-client-block-10 .webform-submit{
+	width:100%;
+	color:#FFF;
+	text-transform:uppercase;
+	background:#e74c3c;
+}
+
+.region.region-bottom{
+	height:87px;
+	position:relative;
+	color:#FFF;
+	margin-top:-20px;
+	overflow:hidden;
+}
+
+.region.region-bottom .slogan{
+	padding-left:20px;
+	border-left:1px solid #FFF;
+	font-size: 20px;
+	position: absolute;
+	left: 230px;
+	top: 30px
+}
+
+#block-block-2{
+	position: absolute;
+	top:0px;
+	left: 0;
+}
+
+#block-block-3{
+	position:absolute;
+	bottom:-37px;
+	font-size:12px;
+	right:0px;
+}
+#block-block-3 a{
+	color:#FFF;
+}
+
+#block-system-main-menu {
+
+	position:absolute;
+	right:0;
+	top:12px;
+	
+}
+
+#block-system-main-menu li{
+	display: inline-block;
+	list-style:none;
+	margin-left:20px;
+}
+
+#block-system-main-menu li a{
+		
+	color:#FFF;
+}
+.middle-foot {
+	background:url(/images/middle-foot.jpg) top center no-repeat;
+	width:100%;
+	height:307px;
+}
+
+#block-block-4{
+	background:#f4f5f6;
+	padding:30px 0 30px 0
+}
+#block-block-4 p{
+	text-align:center;
+	font-size:16px;
+}
+#block-views-advantages-block{
+	padding-top:20px;
+}
+#block-views-advantages-block .views-field-title{
+	font-size:25px;	
+}
+#block-views-advantages-block ul {
+
+	padding-bottom:20px !important;
+}
+#block-views-advantages-block ul li{
+	width:49%;
+	float:left;
+	font-size:16px;
+	list-style:none;
+	margin-bottom:30px;
+}
+#block-views-advantages-block ul li:nth-child(1){
+	margin-left:-30px;	
+	margin-right:30px;
+}
+
+#block-views-advantages-block ul li:nth-child(3){
+	margin-left:-30px;	
+	margin-right:30px;
+	margin-bottom:60px;
+}
+#block-views-advantages-block ul li:nth-child(4){
+
+	margin-bottom:60px;
+}
+
+#block-views-advantages-block ul li a{
+	color:#1abc9c;
+}
+
+#content h1{
+	margin-top:-30px;
+	margin-bottom:35px;
+}
+article .field-name-body{
+	padding-bottom:50px;	
+}
+
+.field-name-body ymaps{
+	float:right;	
+	
+}
+
+.node-16 .field-type-image .field-item{
+	float:left;
+	margin-right:20px;
+}
+.node-16 .field {
+	clear:both;
+	margin-bottom:20px;
+}
+
+.node-16 .field .field-items{
+	padding:20px 0;	
+	display:none;
+}
+
+.node-16 .field-name-field-maininfo{
+	margin-top:-60px;	
+}
+.node-16 .field-name-field-maininfo p{
+	margin:0;
+}
+.node-16 .field-name-body{
+	margin-top:-30px;	
+}
+
+.node-16 .field-label{
+	cursor:pointer;	
+}
